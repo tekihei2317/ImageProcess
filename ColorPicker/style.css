@@ -2,6 +2,7 @@ body{
   font-family: sans-serif;
 }
 
+/* canvas */
 #canvas{
   border: 1px solid lightgray;
 }
@@ -14,10 +15,12 @@ body{
   margin-top: 40px;
 }
 
+/* container */
 .container{
   padding: 4px;
   width: 300px;
   margin-top: 4px;
+  margin-left: 4px;
   border: 1px solid lightgray;
 
   display: flex;
@@ -36,4 +39,10 @@ body{
 
 .container .info p{
   margin-top: 8px;
+}
+
+/* picked colors */
+#pickedColors{
+  display: flex;
+  flex-wrap: wrap;
 }

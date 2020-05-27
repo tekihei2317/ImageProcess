@@ -34,7 +34,7 @@
   });
 
   // 選択した色を追加
-  const body=document.querySelector('body');
+  const pickedColors=document.getElementById('pickedColors');
   canvas.addEventListener('click', (e)=>{
     const pixel=context.getImageData(e.layerX, e.layerY, 1, 1);
     const data=pixel.data;
@@ -54,7 +54,7 @@
     rgbaElem.textContent=`RGBA: ${rgba}`;
 
     // 追加
-    body.appendChild(container);
+    pickedColors.appendChild(container);
     container.appendChild(color);
     container.appendChild(info);
     info.appendChild(hexElem);

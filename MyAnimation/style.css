@@ -1,6 +1,7 @@
 
 #canvas{
+  display: block;
+  margin: 40px auto;
   border: 1px solid lightgray;
-  margin: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.7);
 }

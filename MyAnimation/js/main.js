@@ -7,9 +7,8 @@
   const img1=new Image();
   img1.src="tekihei.png";
 
-  // TODO: 背景が透明でないものに変える
   const img2=new Image();
-  img2.src="carrot_small.png";
+  img2.src="carrot_whitebackground.png";
   
   let loadCount=0;
   img1.addEventListener('load', ()=>{
@@ -27,7 +26,7 @@
   });
 
   // 行・列の個数(奇数)
-  const NUM=23;
+  const NUM=49;
   const SIZE=img1.width/NUM;
 
   // 描く場所(左上の座標)
@@ -60,18 +59,17 @@
           context.clearRect(dstX, dstY, SIZE, SIZE);
         }else{
           // 4周期のうち前半は画像1、後半は画像2を表示
-          if((counter/loopSize)%4<2){
-            context.drawImage(img1, srcX, srcY, SIZE, SIZE, dstX, dstY, SIZE, SIZE);
-          }else{
-            context.fillStyle="white";
-            context.fillRect(dstX, dstY, SIZE, SIZE);
-            context.drawImage(img2, srcX, srcY, SIZE, SIZE, dstX, dstY, SIZE, SIZE);
-          }
+          const img=((counter/loopSize)%4<2? img1:img2);
+          context.drawImage(img, srcX, srcY, SIZE, SIZE, dstX, dstY, SIZE, SIZE);
         }
         flag[i][j]=!flag[i][j];
       }
     }
     counter++;
-    setTimeout(change, 40);
+    let nextChangeTime=30;
+    if(counter%loopSize==0){
+      if(counter/loopSize%4==1 || counter/loopSize%4==3) nextChangeTime=200;
+    }
+    setTimeout(change, nextChangeTime);
   }
 }
